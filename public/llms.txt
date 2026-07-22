@@ -1,0 +1,18 @@
+# Pawan Tripathi — Portfolio
+
+> Personal portfolio of Pawan Tripathi, a frontend developer specializing in React.js, TypeScript and Tailwind CSS. This site showcases his projects, technical skills, professional journey and contact details.
+
+## Pages
+
+- [Home](https://pawantripathi.vercel.app/#home): Introduction and overview of Pawan Tripathi.
+- [About](https://pawantripathi.vercel.app/#about): Background, bio and availability status.
+- [Services](https://pawantripathi.vercel.app/#services): Frontend development services offered.
+- [Skills](https://pawantripathi.vercel.app/#skills): Technical stack — React.js, TypeScript, Tailwind CSS and more.
+- [Journey](https://pawantripathi.vercel.app/#journey): Education and professional experience timeline.
+- [Projects](https://pawantripathi.vercel.app/#projects): Selected work including NovaShop, AccessCopilot and more.
+- [Contact](https://pawantripathi.vercel.app/#contact): Ways to get in touch with Pawan Tripathi.
+
+## Notes
+
+- Built with React, Vite and Tailwind CSS.
+- Source code is available on [GitHub](https://github.com/tripathipawan).

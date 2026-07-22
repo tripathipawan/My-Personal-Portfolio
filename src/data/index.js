@@ -70,7 +70,7 @@ export const skillCategories = [
 export const projects = [
 {
     id: 1, emoji: "🤖", title: "Access Copilot", featured: true,
-    image: "/projects/accesscopilot.png",
+    image: "/projects/accesscopilot.webp",
     desc: "AccessCopilot is an AI-powered web accessibility auditing tool.",
     tech: ["TypeScript","Redux Toolkit + Redux Persist",  "React.js", "Tailwind CSS", "Framer Motion", "Redux Toolkit"],
     github: "https://github.com/tripathipawan/Accessibility_Copilot",
@@ -79,7 +79,7 @@ export const projects = [
   },
   {
     id: 2, emoji: "🛍️", title: "Nova Shop", featured: true,
-    image: "/projects/novashop.png",
+    image: "/projects/novashop.webp",
     desc: "Modern e-commerce frontend with product listings, cart management, filter and sleek responsive design.",
     tech: ["JavaScript", "React.js", "Tailwind CSS", "Context API", "Axios", "Lucide Icons", "Framer Motion", "Slick-carousel", "Clerk"],
     github: "https://github.com/tripathipawan/Nova_Shop/",
@@ -88,7 +88,7 @@ export const projects = [
   },
   {
     id: 3, emoji: "🏥", title: "Doctor Appointment Booking App", featured: true,
-    image: "/projects/doctor.png",
+    image: "/projects/doctor.webp",
     desc: "Doctor appointment booking with Firebase auth, real-time Firestore, light/dark mode, and fully responsive UI.",
     tech: ["JavaScript", "React.js", "Firebase", "Tailwind CSS", "Firestore", "Lucide Icons"],
     github: "https://github.com/tripathipawan/Doctor_Booking_App",
@@ -99,7 +99,7 @@ export const projects = [
 
   {
     id: 4, emoji: "🌈", title: "Color Palette website", featured: false,
-    image: "/projects/colorpalette.png",
+    image: "/projects/colorpalette.webp",
     desc: "A color palette generator and explorer built with Supabase — browse, save, and share beautiful color combinations.",
     tech: ["Supabase", "React.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Lucide Icons"],
     github: "https://github.com/tripathipawan/Color_Picker_Website",
@@ -108,7 +108,7 @@ export const projects = [
   },
   {
     id: 6, emoji: "👟", title: "Nike Landing Page", featured: false,
-    image: "/projects/nike.png",
+    image: "/projects/nike.webp",
     desc: "Pixel-perfect Nike landing page with smooth animations and premium feel showcasing advanced Tailwind.",
     tech: ["JavaScript", "React.js", "Tailwind CSS", "Framer Motion", "Lucide Icons"],
     github: "https://github.com/tripathipawan/Nike",

@@ -31,7 +31,7 @@ const SKILLS = [
 function Item({ label, Icon }) {
   return (
     <div className="flex items-center gap-2.5 px-6 flex-shrink-0">
-      <span style={{ color: "var(--green)" }}>
+      <span aria-hidden="true" style={{ color: "var(--green)" }}>
         <Icon size={13} />
       </span>
       <span

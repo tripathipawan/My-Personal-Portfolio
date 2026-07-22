@@ -48,7 +48,7 @@ body {
   /* ── FIXED: light mode text2 contrast improved from #4a5370 → #3d4a6b ── */
   --text2: #3d4a6b;
   /* ── FIXED: light mode text3 improved from #8892aa → #5c6480 ── */
-  --text3: #5c6480;
+  --text3: #8792b0;
   --border: rgba(0, 0, 0, 0.07);
   --border-c: rgba(0, 0, 0, 0.12);
   --border-h: rgba(99, 102, 241, 0.4);

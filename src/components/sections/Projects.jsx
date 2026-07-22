@@ -135,7 +135,7 @@ function ProjectCard({ project, index, onActivate }) {
               style={{ color: project.color }}
             >
               <span className="w-5 h-px" style={{ background: project.color }} />
-              Live project <FaExternalLinkAlt size={10} />
+              Live project <FaExternalLinkAlt size={10} aria-hidden="true" />
             </a>
             {project.github && (
               <a
@@ -145,7 +145,7 @@ function ProjectCard({ project, index, onActivate }) {
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[11px] font-mono"
                 style={{ border: "1px solid var(--border)", color: "var(--text2)" }}
               >
-                <FaGithub size={13} />
+                <FaGithub size={13} aria-hidden="true" />
                 Source
               </a>
             )}
@@ -196,7 +196,7 @@ function GithubCTACard({ index, onActivate }) {
           className="w-14 h-14 rounded-full flex items-center justify-center"
           style={{ background: `${accent}18`, border: `1px solid ${accent}35` }}
         >
-          <FaGithub size={24} style={{ color: "var(--text2)" }} />
+          <FaGithub size={24} aria-hidden="true" style={{ color: "var(--text2)" }} />
         </div>
         <p className="text-xl sm:text-2xl font-black" style={{ color: "var(--text2)" }}>
           More on <span className="g-text italic">GitHub</span>
@@ -205,7 +205,7 @@ function GithubCTACard({ index, onActivate }) {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[11px] font-mono tracking-wide"
           style={{ border: `1px solid ${accent}30`, background: `${accent}10`, color: accent }}
         >
-          <FaGithub size={13} />
+          <FaGithub size={13} aria-hidden="true" />
           65+ Repositories
         </span>
         <p className="text-[10px] tracking-widest uppercase font-mono" style={{ color: "var(--text3)" }}>

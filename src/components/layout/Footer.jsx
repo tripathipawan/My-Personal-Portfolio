@@ -27,12 +27,13 @@ export function SocialIcon({ s, size = 18 }) {
       target="_blank"
       rel="noopener noreferrer"
       title={s.name}
+      aria-label={`Visit Pawan Tripathi on ${s.name} (opens in new tab)`}
       className="w-10 h-10 rounded-xl flex items-center justify-center neu-sm hover:-translate-y-1 hover:scale-110 transition-all duration-200"
       style={{ color: "var(--text2)" }}
       onMouseEnter={(e) => (e.currentTarget.style.color = s.color)}
       onMouseLeave={(e) => (e.currentTarget.style.color = "")}
     >
-      <Icon size={size} />
+      <Icon size={size} aria-hidden="true" />
     </a>
   );
 }
@@ -81,6 +82,7 @@ export function ScrollToTop() {
       }}
     >
       <svg
+        aria-hidden="true"
         width="48"
         height="48"
         className="absolute top-0 left-0"
@@ -108,6 +110,7 @@ export function ScrollToTop() {
         />
       </svg>
       <span
+        aria-hidden="true"
         className="relative z-10 text-sm g-text font-bold"
         style={{ marginTop: -2 }}
       >

@@ -180,25 +180,25 @@ export default function Hero() {
               ))}
             </div>
 
-            <div className="flex flex-wrap gap-2 justify-center lg:justify-start" role="list" aria-label="Social media links">
+            <ul className="flex flex-wrap gap-2 justify-center lg:justify-start list-none p-0 m-0" aria-label="Social media links">
               {socials.map((s) => {
                 const Icon = SOCIAL_ICONS[s.icon];
                 return (
-                  <a
-                    key={s.name}
-                    href={s.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Visit Pawan Tripathi on ${s.name} (opens in new tab)`}
-                    role="listitem"
-                    className="hero-social w-9 h-9 rounded-xl flex items-center justify-center"
-                    style={{ background: "linear-gradient(145deg,var(--bg2),var(--bg3))", boxShadow: "var(--neu-out-sm)", border: "1px solid var(--border)", color: s.color }}
-                  >
-                    {Icon && <Icon size={14} aria-hidden="true" />}
-                  </a>
+                  <li key={s.name}>
+                    <a
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Visit Pawan Tripathi on ${s.name} (opens in new tab)`}
+                      className="hero-social w-9 h-9 rounded-xl flex items-center justify-center"
+                      style={{ background: "linear-gradient(145deg,var(--bg2),var(--bg3))", boxShadow: "var(--neu-out-sm)", border: "1px solid var(--border)", color: s.color }}
+                    >
+                      {Icon && <Icon size={14} aria-hidden="true" />}
+                    </a>
+                  </li>
                 );
               })}
-            </div>
+            </ul>
           </div>
 
           {/* ── Right: Profile Image ── */}
