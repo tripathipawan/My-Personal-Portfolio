@@ -19,7 +19,7 @@ body {
   /* ── FIXED: text2 contrast improved from #8d98b5 → #a0aac5 (4.5:1 on dark bg) ── */
   --text2: #a0aac5;
   /* ── FIXED: text3 contrast improved from #3a4258 → #6b7898 ── */
-  --text3: #6b7898;
+  --text3: #8792b0;
 
   --accent: #6366f1;
   --accent-h: #818cf8;
@@ -48,7 +48,7 @@ body {
   /* ── FIXED: light mode text2 contrast improved from #4a5370 → #3d4a6b ── */
   --text2: #3d4a6b;
   /* ── FIXED: light mode text3 improved from #8892aa → #5c6480 ── */
-  --text3: #8792b0;
+  --text3: #5c6480;
   --border: rgba(0, 0, 0, 0.07);
   --border-c: rgba(0, 0, 0, 0.12);
   --border-h: rgba(99, 102, 241, 0.4);
