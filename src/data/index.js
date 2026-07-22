@@ -47,11 +47,11 @@ export const skillCategories = [
   },
   {
     cat: "React Ecosystem", icon: "⚛️", color: "#38bdf8",
-    skills: ["React.js", "React Router", "React Hooks", "Context API", "Redux Toolkit", "Zustand", "React Query", "Custom Hooks"],
+    skills: ["React.js", "React Router", "React Hooks", "Context API", "Redux Toolkit", "Custom Hooks"],
   },
   {
     cat: "Styling & UI", icon: "🎨", color: "#10d9a0",
-    skills: ["Tailwind CSS v4", "Framer Motion", "GSAP", "ShadCN UI", "Material UI", "Bootstrap", "CSS Animations", "Neuromorphic UI"],
+    skills: ["Tailwind CSS v4", "Framer Motion", "GSAP", "ShadCN UI", "Material UI", "Bootstrap", "CSS Animations"],
   },
   {
     cat: "Tools & Platforms", icon: "🛠️", color: "#f59e0b",
@@ -63,7 +63,7 @@ export const skillCategories = [
   },
   {
     cat: "AI Dev Tools", icon: "🤖", color: "#a78bfa",
-    skills: ["Claude AI", "Lovable.dev", "Emergent", "Replit", "GitHub Copilot", "Cursor AI", "v0 by Vercel", "Bolt.new"],
+    skills: ["Claude AI", "Lovable.dev", "Emergent", "Replit", "GitHub Copilot", "Cursor AI", "v0 by Vercel"],
   },
 ]
 
@@ -75,7 +75,7 @@ export const projects = [
     tech: ["TypeScript","Redux Toolkit + Redux Persist",  "React.js", "Tailwind CSS", "Framer Motion", "Redux Toolkit"],
     github: "https://github.com/tripathipawan/Accessibility_Copilot",
     live: "https://accesscopilot.vercel.app/",
-    color: "#38bdf8",
+    color: "#7510ff",
   },
   {
     id: 2, emoji: "🛍️", title: "Nova Shop", featured: true,
@@ -84,7 +84,7 @@ export const projects = [
     tech: ["JavaScript", "React.js", "Tailwind CSS", "Context API", "Axios", "Lucide Icons", "Framer Motion", "Slick-carousel", "Clerk"],
     github: "https://github.com/tripathipawan/Nova_Shop/",
     live: "https://knovashop.vercel.app/",
-    color: "#ffe000",
+    color: "#f59e0b",
   },
   {
     id: 3, emoji: "🏥", title: "Doctor Appointment Booking App", featured: true,
@@ -121,6 +121,15 @@ export const projects = [
 export const experience = [
   {
     id: 1,
+    role: "Frontend Developer",
+    company: "Personal Projects",
+    period: "2025 – Present",
+    type: "Self-Initiative",
+    current: true,
+    desc: 'Building and maintaining personal projects, including web apps, UI components, and open-source contributions.',
+    tags: ["JavaScript", "TypeScript", "React.js", "Firebase", "REST APIs", "Tailwind CSS", "Framer Motion", "GSAP", "Bootstrap", "Material UI", "ShadCN UI"],
+  },{
+    id: 2,
     role: "Frontend Developer",
     company: "Tripathi Dev Lab",
     period: "2025 – Present",
@@ -197,7 +206,7 @@ export const certifications = [
     name: "Github Copilot Fundamentals",
     platform: "Microsoft",
     year: "2026",
-    color: "#ffe000",
+    color: "#f59e0b",
     icon: "🏅",
     URL: "https://simpli-web.app.link/e/gUKkBxqI33b",
   },
