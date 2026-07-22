@@ -1,0 +1,851 @@
+@import "tailwindcss";
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+:root {
+  --font: 'Geist', system-ui, sans-serif;
+  --mono: 'Geist Mono', monospace;
+  --bg0: #060810;
+  --bg1: #0a0d16;
+  --bg2: #0f1320;
+  --bg3: #141928;
+  --bg4: #1a2035;
+  --sh-d: rgba(0, 0, 0, 0.8);
+  --sh-l: rgba(255, 255, 255, 0.035);
+  --text1: #eef0f8;
+
+  /* ── FIXED: text2 contrast improved from #8d98b5 → #a0aac5 (4.5:1 on dark bg) ── */
+  --text2: #a0aac5;
+  /* ── FIXED: text3 contrast improved from #3a4258 → #6b7898 ── */
+  --text3: #6b7898;
+
+  --accent: #6366f1;
+  --accent-h: #818cf8;
+  --accent-glow: rgba(99, 102, 241, 0.35);
+  --green: #10d9a0;
+  --amber: #f59e0b;
+  --pink: #f472b6;
+  --border: rgba(255, 255, 255, 0.055);
+  --border-h: rgba(99, 102, 241, 0.4);
+  --neu-out: 6px 6px 20px var(--sh-d), -3px -3px 10px var(--sh-l);
+  --neu-out-sm: 3px 3px 12px var(--sh-d), -2px -2px 6px var(--sh-l);
+  --neu-in: inset 3px 3px 8px var(--sh-d), inset -2px -2px 6px var(--sh-l);
+  --neu-in-sm: inset 2px 2px 6px var(--sh-d), inset -1px -1px 4px var(--sh-l);
+}
+
+[data-theme="light"] {
+  --bg0: #dde2ea;
+  --bg1: #e3e8f0;
+  --bg2: #e9eef5;
+  --bg3: #eff3f8;
+  --bg4: #f7f9fc;
+  --bg5: #dde4ef;
+  --sh-d: rgba(150, 165, 185, 0.55);
+  --sh-l: rgba(255, 255, 255, 0.95);
+  --text1: #080c18;
+  /* ── FIXED: light mode text2 contrast improved from #4a5370 → #3d4a6b ── */
+  --text2: #3d4a6b;
+  /* ── FIXED: light mode text3 improved from #8892aa → #5c6480 ── */
+  --text3: #5c6480;
+  --border: rgba(0, 0, 0, 0.07);
+  --border-c: rgba(0, 0, 0, 0.12);
+  --border-h: rgba(99, 102, 241, 0.4);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100%;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg0);
+  color: var(--text1);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+img,
+canvas,
+video,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* ── Accessibility: Screen reader only utility ── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── Accessibility: Focus-visible styles (keyboard nav) ── */
+:focus-visible {
+  outline: 2px solid var(--accent-h);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Accessibility: Reduce motion for users who prefer it ── */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* ─── Navbar ─── */
+.nav-link {
+  color: var(--text2);
+  background: transparent;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--text1);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-link.active {
+  color: var(--accent-h);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+.nav-link.active:hover {
+  color: var(--accent-h);
+  background: rgba(99, 102, 241, 0.08);
+}
+
+/* ─── Hero ─── */
+.hero-card {
+  animation: cardEntry 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.hero-card-name {
+  animation: nameEntry 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
+}
+
+.hero-card-glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: 2.1rem;
+  z-index: 0;
+  background: conic-gradient(from 0deg, transparent 20%, var(--accent) 40%, var(--green) 60%, transparent 80%);
+  animation: glowPulse 3s ease-in-out infinite;
+  will-change: opacity;
+}
+
+.hero-card-img img {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.hero-card-img:hover img {
+  transform: scale(1.05) translate3d(0, 0, 0);
+}
+
+.spotlight {
+  position: absolute;
+  inset: 0;
+  border-radius: 2rem;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: radial-gradient(300px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.07), transparent 70%);
+}
+
+.hero-card:hover .spotlight {
+  opacity: 1;
+}
+
+.hero-btn {
+  transition: transform 0.2s ease;
+}
+
+.hero-btn:hover {
+  transform: scale(1.05) translate3d(0, 0, 0);
+}
+
+.hero-social {
+  transition: transform 0.2s ease;
+}
+
+.hero-social:hover {
+  transform: translate3d(0, -4px, 0);
+}
+
+  .marquee-track {
+    animation: none !important;
+  }
+
+  .rv {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg0);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* ─── About ─── */
+.about-card {
+  animation: aboutCardEntry 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-style: preserve-3d;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.about-card-glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: 1rem;
+  z-index: 0;
+  background: conic-gradient(from 0deg, transparent 20%, var(--accent) 40%, var(--green) 60%, transparent 80%);
+  animation: glowPulse 3s ease-in-out infinite;
+}
+.about-card-img img {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.about-card:hover .about-card-img img {
+  transform: scale(1.04);
+}
+.about-spotlight {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.06), transparent 70%);
+}
+.about-card:hover .about-spotlight {
+  opacity: 1;
+}
+.about-card-name {
+  animation: aboutNameEntry 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+
+/* ─── Certifications ─── */
+.cert-rv {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition: opacity 0.5s ease var(--cert-d, 0ms), transform 0.5s ease var(--cert-d, 0ms);
+  will-change: opacity, transform;
+}
+.cert-rv.in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+.cert-rv.in:hover {
+  transform: translate3d(0, -6px, 0);
+}
+
+/* ─── Contact ─── */
+.info-row {
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.info-row:hover {
+  border-color: var(--border-h);
+  transform: translateX(5px);
+}
+.info-row-arrow {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.info-row:hover .info-row-arrow {
+  opacity: 1;
+}
+
+/* ─── Shared section header (Services + Skills) ─── */
+.pulse-dot {
+  animation: pulseDot 2s ease-in-out infinite;
+}
+.section-title-rv {
+  transform: translateY(110%);
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.section-title-rv.in {
+  transform: translateY(0);
+}
+
+/* ─── Journey: scoreboard + year bar ─── */
+.scoreboard-bar {
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  transform-origin: left center;
+}
+.scoreboard-num {
+  transition: color 0.35s ease, text-shadow 0.35s ease;
+}
+.year-bar-fill {
+  height: 0;
+  animation: growBar 0.7s ease-out forwards;
+}
+
+/* ─── Panel swap (Journey tabs + Skills tabs) ─── */
+.panel-swap {
+  animation: panelSwapIn 0.38s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.panel-icon-in {
+  animation: fadeInScale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* ─── Skills: tab indicator + pill entrance ─── */
+.tab-indicator {
+  animation: scaleIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.skill-pill-in {
+  animation: cardEntry 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── New keyframes ─── */
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.6); opacity: 0.4; }
+}
+
+@keyframes growBar {
+  from { height: 0; }
+  to { height: 100%; }
+}
+
+@keyframes panelSwapIn {
+  from { opacity: 0; transform: translate3d(24px, 0, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+.neu {
+  background: linear-gradient(145deg, var(--bg2), var(--bg3));
+  box-shadow: var(--neu-out);
+}
+
+.neu-sm {
+  background: linear-gradient(145deg, var(--bg2), var(--bg3));
+  box-shadow: var(--neu-out-sm);
+}
+
+.neu-in {
+  background: linear-gradient(145deg, var(--bg3), var(--bg2));
+  box-shadow: var(--neu-in);
+}
+
+.neu-in-sm {
+  background: linear-gradient(145deg, var(--bg3), var(--bg2));
+  box-shadow: var(--neu-in-sm);
+}
+
+.g-text {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-h) 50%, var(--green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-wrap {
+  max-width: 1180px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 80px 16px;
+}
+
+@media (min-width: 640px) {
+  .section-wrap {
+    padding: 100px 32px;
+  }
+}
+
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: var(--accent);
+  margin-left: 3px;
+  vertical-align: middle;
+  border-radius: 1px;
+  animation: blink 2s step-end infinite;
+}
+
+.rv {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition: opacity 0.55s ease var(--rv-d, 0ms),
+    transform 0.55s ease var(--rv-d, 0ms);
+  will-change: opacity, transform;
+}
+
+.rv.in {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
+}
+
+.rv-l {
+  transform: translate3d(-30px, 0, 0);
+}
+
+.rv-r {
+  transform: translate3d(30px, 0, 0);
+}
+
+.rv-l.in,
+.rv-r.in {
+  transform: translate3d(0, 0, 0);
+}
+
+.hover-lift {
+  transition: transform 0.2s ease;
+  will-change: transform;
+}
+
+.hover-lift:hover {
+  transform: translate3d(0, -6px, 0);
+}
+
+.hover-nudge {
+  transition: transform 0.2s ease;
+  will-change: transform;
+}
+
+.hover-nudge:hover {
+  transform: translate3d(4px, 0, 0);
+}
+
+/* ─── Marquee  */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: marquee-scroll 28s linear infinite;
+  contain: layout style;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Skill pill hover */
+.skill-pill {
+  transition: transform 0.15s ease;
+}
+
+.skill-pill:hover {
+  transform: scale(1.07) translate3d(0, -2px, 0);
+}
+
+/* ─── Social sidebar */
+.social-sidebar {
+  position: fixed;
+  left: 20px;
+  bottom: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.social-sidebar::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 80px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  margin-top: 8px;
+}
+
+/* ─── Form fields */
+.field {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, var(--bg3), var(--bg2));
+  box-shadow: var(--neu-in-sm);
+  border: 1px solid transparent;
+  color: var(--text1);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  resize: none;
+}
+
+.field::placeholder {
+  /* ── FIXED: placeholder contrast improved ── */
+  color: var(--text3);
+  opacity: 1;
+}
+
+.field:focus {
+  border-color: var(--border-h);
+  box-shadow: var(--neu-in-sm), 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+.field.err {
+  border-color: rgba(248, 113, 113, 0.6);
+}
+
+/* ─── Skill fill bar */
+.skill-fill {
+  height: 100%;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  width: 0;
+  transition: width 1.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: width;
+}
+
+.skill-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  animation: shimmer 2.4s ease infinite;
+  will-change: transform;
+}
+
+.skill-fill.go {
+  width: var(--w);
+}
+
+/* ─── Keyframes  */
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1
+  }
+
+  50% {
+    opacity: 0
+  }
+}
+
+@keyframes shimmer {
+  from {
+    transform: translate3d(-100%, 0, 0)
+  }
+
+  to {
+    transform: translate3d(200%, 0, 0)
+  }
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0)
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0)
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg)
+  }
+
+  33% {
+    transform: translate3d(0, -22px, 0) rotate(4deg)
+  }
+
+  66% {
+    transform: translate3d(0, 12px, 0) rotate(-3deg)
+  }
+}
+
+@keyframes floatB {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0)
+  }
+
+  50% {
+    transform: translate3d(0, -30px, 0)
+  }
+}
+
+@keyframes float-badge {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0)
+  }
+
+  50% {
+    transform: translate3d(0, -8px, 0)
+  }
+}
+
+@keyframes spin-border {
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg)
+  }
+
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes grid-move {
+  0% {
+    background-position: 0 0
+  }
+
+  100% {
+    background-position: 60px 60px
+  }
+}
+
+@keyframes cardEntry {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 32px, 0) scale(0.96)
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1)
+  }
+}
+
+@keyframes nameEntry {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0)
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0)
+  }
+}
+
+@keyframes glowPulse {
+
+  0%,
+  100% {
+    opacity: 0.25
+  }
+
+  50% {
+    opacity: 0.45
+  }
+}
+
+@keyframes aboutCardEntry {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0) scale(0.97)
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1)
+  }
+}
+
+@keyframes aboutNameEntry {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0)
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0)
+  }
+}
+
+@keyframes loaderExit {
+  to {
+    opacity: 0;
+    transform: scale(1.06)
+  }
+}
+
+@keyframes spinCW {
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes spinCCW {
+  to {
+    transform: rotate(-360deg)
+  }
+}
+
+@keyframes loaderScaleIn {
+  from {
+    transform: scale(0);
+    opacity: 0
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.88)
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1)
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.4)
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1)
+  }
+}
+
+@keyframes nudgeRight {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0)
+  }
+
+  50% {
+    transform: translate3d(4px, 0, 0)
+  }
+}
+
+@keyframes navSlideDown {
+  from {
+    transform: translate3d(0, -80px, 0);
+    opacity: 0
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1
+  }
+}
+
+@keyframes mobileMenuIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -20px, 0) scale(0.95)
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1)
+  }
+}
+
+@keyframes backdropIn {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+
+
+
+
+.project-card-img {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.project-card:hover .project-card-img {
+  transform: scale(1.06);
+}
+
+.project-card {
+  transition: border-color 0.3s ease;
+}
+
+.project-card:hover {
+  border-color: var(--border-h);
+}
