@@ -164,7 +164,7 @@ export default function About() {
             <p className="text-[1rem] leading-[1.9]" style={{ color: "var(--text2)" }}>
               {personal.Aboutbio}
             </p>
-            <dl className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {details.map((item) => (
                 <div
                   key={item.label}
@@ -183,16 +183,16 @@ export default function About() {
                     {item.icon}
                   </div>
                   <div className="min-w-0">
-                    <dt className="text-[10px] uppercase tracking-wider font-semibold mb-0.5" style={{ color: "var(--text3)" }}>
+                    <p className="text-[10px] uppercase tracking-wider font-semibold mb-0.5" style={{ color: "var(--text3)" }}>
                       {item.label}
-                    </dt>
-                    <dd className="text-[0.82rem] font-semibold truncate" style={{ color: "var(--text1)" }}>
+                    </p>
+                    <p className="text-[0.82rem] font-semibold truncate" style={{ color: "var(--text1)" }}>
                       {item.value}
-                    </dd>
+                    </p>
                   </div>
                 </div>
               ))}
-            </dl>
+            </div>
           </div>
         </div>
       </div>

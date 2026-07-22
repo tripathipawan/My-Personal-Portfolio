@@ -104,7 +104,7 @@ export default function Skills() {
                 <span className="text-[10px] font-bold tabular-nums" style={{ color: "var(--text2)" }}>
                   {active + 1} / {skillCategories.length}
                 </span>
-                <div className="flex gap-1" aria-hidden>
+                <div className="flex gap-1" role="tablist" aria-label="Skill category progress">
                   {skillCategories.map((_, i) => (
                     <button
                       key={i}
