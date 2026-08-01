@@ -51,7 +51,7 @@ export const skillCategories = [
   },
   {
     cat: "Styling & UI", icon: "🎨", color: "#10d9a0",
-    skills: ["Tailwind CSS v4", "Framer Motion", "GSAP", "ShadCN UI", "Material UI", "Bootstrap", "CSS Animations"],
+    skills: ["Tailwind CSS v4", "SCSS/SASS", "Framer Motion", "GSAP", "ShadCN UI", "Material UI", "Bootstrap", "CSS Animations"],
   },
   {
     cat: "Tools & Platforms", icon: "🛠️", color: "#f59e0b",
