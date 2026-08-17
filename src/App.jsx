@@ -80,10 +80,10 @@ function Inner() {
           <About />
         </Suspense>
         <Suspense fallback={<Skeleton />}>
-          <Services />
+          <Skills />
         </Suspense>
         <Suspense fallback={<Skeleton />}>
-          <Skills />
+          <Services />   
         </Suspense>
         <Suspense fallback={<Skeleton />}>
           <Edu_Exp />
