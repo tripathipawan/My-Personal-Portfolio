@@ -51,7 +51,7 @@ export const skillCategories = [
   },
   {
     cat: "Styling & UI", icon: "🎨", color: "#10d9a0",
-    skills: ["Tailwind CSS v4", "Framer Motion", "GSAP", "ShadCN UI", "Material UI", "Bootstrap", "CSS Animations"],
+    skills: ["Tailwind CSS v4", "SCSS/SASS", "Framer Motion", "GSAP", "ShadCN UI", "Material UI", "Bootstrap", "CSS Animations"],
   },
   {
     cat: "Tools & Platforms", icon: "🛠️", color: "#f59e0b",
@@ -270,6 +270,7 @@ export const services = [
     tags: ["Firebase", "Firestore", "REST APIs", "Axios"],
     available: true,
   },
+<<<<<<< HEAD
   {
     id: 6,
     icon: "🧩",
@@ -321,3 +322,6 @@ export const services = [
     available: true,
   },
 ]
+=======
+]
+>>>>>>> 352c17e7d5ccab9bdb6a65634a7e3b83ef307af0

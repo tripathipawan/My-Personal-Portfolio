@@ -15,10 +15,7 @@ body {
   --sh-d: rgba(0, 0, 0, 0.8);
   --sh-l: rgba(255, 255, 255, 0.035);
   --text1: #eef0f8;
-
-  /* ── FIXED: text2 contrast improved from #8d98b5 → #a0aac5 (4.5:1 on dark bg) ── */
   --text2: #a0aac5;
-  /* ── FIXED: text3 contrast improved from #3a4258 → #6b7898 ── */
   --text3: #8792b0;
 
   --accent: #6366f1;
@@ -45,9 +42,7 @@ body {
   --sh-d: rgba(150, 165, 185, 0.55);
   --sh-l: rgba(255, 255, 255, 0.95);
   --text1: #080c18;
-  /* ── FIXED: light mode text2 contrast improved from #4a5370 → #3d4a6b ── */
   --text2: #3d4a6b;
-  /* ── FIXED: light mode text3 improved from #8892aa → #5c6480 ── */
   --text3: #5c6480;
   --border: rgba(0, 0, 0, 0.07);
   --border-c: rgba(0, 0, 0, 0.12);
@@ -121,14 +116,12 @@ button {
   border-width: 0;
 }
 
-/* ── Accessibility: Focus-visible styles (keyboard nav) ── */
 :focus-visible {
   outline: 2px solid var(--accent-h);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* ── Accessibility: Reduce motion for users who prefer it ── */
 @media (prefers-reduced-motion: reduce) {
 
   *,
@@ -139,7 +132,6 @@ button {
     transition-duration: 0.01ms !important;
   }
 
-  /* ─── Navbar ─── */
 .nav-link {
   color: var(--text2);
   background: transparent;
@@ -161,7 +153,6 @@ button {
   background: rgba(99, 102, 241, 0.08);
 }
 
-/* ─── Hero ─── */
 .hero-card {
   animation: cardEntry 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
   transform-style: preserve-3d;
@@ -317,7 +308,7 @@ button {
   opacity: 1;
 }
 
-/* ─── Shared section header (Services + Skills) ─── */
+/* ─── Shared section header ─── */
 .pulse-dot {
   animation: pulseDot 2s ease-in-out infinite;
 }
@@ -329,7 +320,7 @@ button {
   transform: translateY(0);
 }
 
-/* ─── Journey: scoreboard + year bar ─── */
+/* ─── Journey ─── */
 .scoreboard-bar {
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
   transform-origin: left center;
@@ -342,7 +333,7 @@ button {
   animation: growBar 0.7s ease-out forwards;
 }
 
-/* ─── Panel swap (Journey tabs + Skills tabs) ─── */
+/* ─── Panel swap ─── */
 .panel-swap {
   animation: panelSwapIn 0.38s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
@@ -350,7 +341,7 @@ button {
   animation: fadeInScale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 
-/* ─── Skills: tab indicator + pill entrance ─── */
+/* ─── Skills ─── */
 .tab-indicator {
   animation: scaleIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
@@ -828,10 +819,6 @@ button {
     opacity: 1
   }
 }
-
-
-
-
 
 .project-card-img {
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
