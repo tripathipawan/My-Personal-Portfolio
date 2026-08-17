@@ -9,7 +9,10 @@ const LINKS = [
   { label: "Skills", id: "skills" },
   { label: "Journey", id: "journey" },
   { label: "Projects", id: "projects" },
+<<<<<<< HEAD
     { label: "Writing", id: "writing" },
+=======
+>>>>>>> bce2ebb5d48a01142cc6e4f5352f7ad7c438b7dc
   { label: "Services", id: "services" },
   { label: "Contact", id: "contact" },
 ];
