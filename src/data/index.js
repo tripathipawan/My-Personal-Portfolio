@@ -270,7 +270,6 @@ export const services = [
     tags: ["Firebase", "Firestore", "REST APIs", "Axios"],
     available: true,
   },
-<<<<<<< HEAD
   {
     id: 6,
     icon: "🧩",
@@ -322,6 +321,3 @@ export const services = [
     available: true,
   },
 ]
-=======
-]
->>>>>>> 352c17e7d5ccab9bdb6a65634a7e3b83ef307af0
