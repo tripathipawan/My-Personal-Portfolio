@@ -38,6 +38,7 @@ export const stats = [
   { value: "70+", label: "Projects" },
   { value: "65+", label: "Repositories" },
   { value: "25+", label: "Technologies" },
+  { value: "5K+", label: "Newsletter Subs" },
 ]
 
 export const skillCategories = [
@@ -321,3 +322,45 @@ export const services = [
     available: true,
   },
 ]
+
+export const newsletter = {
+  platform: "LinkedIn Newsletter",
+  name: "Code, Context & AI",
+  subscribers: "5,000+",
+  followUrl: "https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7483395366604800000",
+  groupUrl: "https://www.linkedin.com/groups/38780051/",
+  tagline: "In-depth AI & frontend engineering breakdowns, read by 5,375+ developers.",
+  articles: [
+    {
+      title: "AI Agents Explained Simply",
+      desc: "A simple breakdown of how AI moves from just answering questions to actually planning and taking action.",
+      url: "https://www.linkedin.com/pulse/ai-agents-explained-simply-pawan-tripathi-qw1ic/",
+      tag: "AI Agents",
+    },
+    {
+      title: "Why RAG Changed Everything",
+      desc: "How Retrieval-Augmented Generation made AI systems smarter and more accurate, and why it became a core building block.",
+      url: "https://www.linkedin.com/pulse/why-rag-changed-everything-pawan-tripathi-q6yoc/",
+      tag: "RAG",
+    },
+    {
+      title: "Why Most AI Apps Fail: They Have Intelligence But No Context",
+      desc: "Why raw model intelligence isn't enough — and how context engineering separates AI apps that actually work from ones that don't.",
+      url: "https://www.linkedin.com/pulse/why-most-ai-apps-fail-have-intelligence-context-pawan-tripathi-focqc/",
+      tag: "AI Systems",
+    },
+    {
+      title: "Prompt Engineering vs. Context Engineering: Which Skill Actually Matters in 2026?",
+      desc: "Breaking down the two skills every AI builder needs, and why one of them is quietly becoming more valuable than the other.",
+      url: "https://www.linkedin.com/pulse/prompt-engineering-vs-context-which-skill-actually-matters-tripathi-othkc/",
+      tag: "AI Skills",
+    },
+    {
+      title: "The AI Stack Every Developer Should Master For The Future",
+      desc: "A practical map of the tools and layers — from LLMs to vector databases — that make up a modern AI application stack.",
+      url: "https://www.linkedin.com/pulse/ai-stack-every-developer-should-master-future-pawan-tripathi-ppfhc/",
+      tag: "AI Stack",
+    },
+
+  ],
+}

@@ -59,10 +59,11 @@ function smoothScroll(id) {
 const NAV = [
   "home",
   "about",
-  "services",
   "skills",
   "journey",
   "projects",
+  "writing",
+  "services",
   "contact",
 ];
 

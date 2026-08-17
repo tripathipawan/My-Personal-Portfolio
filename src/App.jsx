@@ -12,6 +12,7 @@ const Services = lazy(() => import("./components/sections/Services"));
 const Skills = lazy(() => import("./components/sections/Skills"));
 const Edu_Exp = lazy(() => import("./components/sections/Journey"));
 const Projects = lazy(() => import("./components/sections/Projects"));
+const Writing = lazy(() => import("./components/sections/Writing"));
 const Contact = lazy(() => import("./components/sections/Contact"));
 
 function Skeleton() {
@@ -80,9 +81,6 @@ function Inner() {
           <About />
         </Suspense>
         <Suspense fallback={<Skeleton />}>
-          <Services />
-        </Suspense>
-        <Suspense fallback={<Skeleton />}>
           <Skills />
         </Suspense>
         <Suspense fallback={<Skeleton />}>
@@ -90,6 +88,12 @@ function Inner() {
         </Suspense>
         <Suspense fallback={<Skeleton />}>
           <Projects />
+        </Suspense>
+        <Suspense fallback={<Skeleton />}>
+          <Writing />
+        </Suspense>
+        <Suspense fallback={<Skeleton />}>
+          <Services />
         </Suspense>
         <Suspense fallback={<Skeleton />}>
           <Contact />

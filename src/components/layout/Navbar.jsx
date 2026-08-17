@@ -6,10 +6,11 @@ import { useTheme } from "../../context/ThemeContext";
 const LINKS = [
   { label: "Home", id: "home" },
   { label: "About", id: "about" },
-  { label: "Services", id: "services" },
   { label: "Skills", id: "skills" },
   { label: "Journey", id: "journey" },
   { label: "Projects", id: "projects" },
+    { label: "Writing", id: "writing" },
+  { label: "Services", id: "services" },
   { label: "Contact", id: "contact" },
 ];
 

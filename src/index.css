@@ -132,86 +132,86 @@ button {
     transition-duration: 0.01ms !important;
   }
 
-.nav-link {
-  color: var(--text2);
-  background: transparent;
-  transition: color 0.2s ease, background 0.2s ease;
-}
+  .nav-link {
+    color: var(--text2);
+    background: transparent;
+    transition: color 0.2s ease, background 0.2s ease;
+  }
 
-.nav-link:hover {
-  color: var(--text1);
-  background: rgba(255, 255, 255, 0.04);
-}
+  .nav-link:hover {
+    color: var(--text1);
+    background: rgba(255, 255, 255, 0.04);
+  }
 
-.nav-link.active {
-  color: var(--accent-h);
-  background: rgba(99, 102, 241, 0.08);
-}
+  .nav-link.active {
+    color: var(--accent-h);
+    background: rgba(99, 102, 241, 0.08);
+  }
 
-.nav-link.active:hover {
-  color: var(--accent-h);
-  background: rgba(99, 102, 241, 0.08);
-}
+  .nav-link.active:hover {
+    color: var(--accent-h);
+    background: rgba(99, 102, 241, 0.08);
+  }
 
-.hero-card {
-  animation: cardEntry 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
-  transform-style: preserve-3d;
-  will-change: transform;
-}
+  .hero-card {
+    animation: cardEntry 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
 
-.hero-card-name {
-  animation: nameEntry 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
-}
+  .hero-card-name {
+    animation: nameEntry 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
+  }
 
-.hero-card-glow {
-  position: absolute;
-  inset: -1px;
-  border-radius: 2.1rem;
-  z-index: 0;
-  background: conic-gradient(from 0deg, transparent 20%, var(--accent) 40%, var(--green) 60%, transparent 80%);
-  animation: glowPulse 3s ease-in-out infinite;
-  will-change: opacity;
-}
+  .hero-card-glow {
+    position: absolute;
+    inset: -1px;
+    border-radius: 2.1rem;
+    z-index: 0;
+    background: conic-gradient(from 0deg, transparent 20%, var(--accent) 40%, var(--green) 60%, transparent 80%);
+    animation: glowPulse 3s ease-in-out infinite;
+    will-change: opacity;
+  }
 
-.hero-card-img img {
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform;
-}
+  .hero-card-img img {
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
 
-.hero-card-img:hover img {
-  transform: scale(1.05) translate3d(0, 0, 0);
-}
+  .hero-card-img:hover img {
+    transform: scale(1.05) translate3d(0, 0, 0);
+  }
 
-.spotlight {
-  position: absolute;
-  inset: 0;
-  border-radius: 2rem;
-  pointer-events: none;
-  z-index: 20;
-  opacity: 0;
-  transition: opacity 0.3s;
-  background: radial-gradient(300px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.07), transparent 70%);
-}
+  .spotlight {
+    position: absolute;
+    inset: 0;
+    border-radius: 2rem;
+    pointer-events: none;
+    z-index: 20;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background: radial-gradient(300px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.07), transparent 70%);
+  }
 
-.hero-card:hover .spotlight {
-  opacity: 1;
-}
+  .hero-card:hover .spotlight {
+    opacity: 1;
+  }
 
-.hero-btn {
-  transition: transform 0.2s ease;
-}
+  .hero-btn {
+    transition: transform 0.2s ease;
+  }
 
-.hero-btn:hover {
-  transform: scale(1.05) translate3d(0, 0, 0);
-}
+  .hero-btn:hover {
+    transform: scale(1.05) translate3d(0, 0, 0);
+  }
 
-.hero-social {
-  transition: transform 0.2s ease;
-}
+  .hero-social {
+    transition: transform 0.2s ease;
+  }
 
-.hero-social:hover {
-  transform: translate3d(0, -4px, 0);
-}
+  .hero-social:hover {
+    transform: translate3d(0, -4px, 0);
+  }
 
   .marquee-track {
     animation: none !important;
@@ -244,6 +244,7 @@ button {
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
 }
+
 .about-card-glow {
   position: absolute;
   inset: -1px;
@@ -252,13 +253,16 @@ button {
   background: conic-gradient(from 0deg, transparent 20%, var(--accent) 40%, var(--green) 60%, transparent 80%);
   animation: glowPulse 3s ease-in-out infinite;
 }
+
 .about-card-img img {
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
 }
+
 .about-card:hover .about-card-img img {
   transform: scale(1.04);
 }
+
 .about-spotlight {
   position: absolute;
   inset: 0;
@@ -269,9 +273,11 @@ button {
   transition: opacity 0.3s;
   background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.06), transparent 70%);
 }
+
 .about-card:hover .about-spotlight {
   opacity: 1;
 }
+
 .about-card-name {
   animation: aboutNameEntry 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
 }
@@ -283,11 +289,13 @@ button {
   transition: opacity 0.5s ease var(--cert-d, 0ms), transform 0.5s ease var(--cert-d, 0ms);
   will-change: opacity, transform;
 }
+
 .cert-rv.in {
   opacity: 1;
   transform: translate3d(0, 0, 0);
   will-change: auto;
 }
+
 .cert-rv.in:hover {
   transform: translate3d(0, -6px, 0);
 }
@@ -296,14 +304,17 @@ button {
 .info-row {
   transition: border-color 0.3s ease, transform 0.3s ease;
 }
+
 .info-row:hover {
   border-color: var(--border-h);
   transform: translateX(5px);
 }
+
 .info-row-arrow {
   opacity: 0;
   transition: opacity 0.2s ease;
 }
+
 .info-row:hover .info-row-arrow {
   opacity: 1;
 }
@@ -312,10 +323,12 @@ button {
 .pulse-dot {
   animation: pulseDot 2s ease-in-out infinite;
 }
+
 .section-title-rv {
   transform: translateY(110%);
   transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
 .section-title-rv.in {
   transform: translateY(0);
 }
@@ -325,9 +338,11 @@ button {
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
   transform-origin: left center;
 }
+
 .scoreboard-num {
   transition: color 0.35s ease, text-shadow 0.35s ease;
 }
+
 .year-bar-fill {
   height: 0;
   animation: growBar 0.7s ease-out forwards;
@@ -337,6 +352,7 @@ button {
 .panel-swap {
   animation: panelSwapIn 0.38s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
+
 .panel-icon-in {
   animation: fadeInScale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
@@ -345,24 +361,46 @@ button {
 .tab-indicator {
   animation: scaleIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
+
 .skill-pill-in {
   animation: cardEntry 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* ─── New keyframes ─── */
 @keyframes pulseDot {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.6); opacity: 0.4; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.6);
+    opacity: 0.4;
+  }
 }
 
 @keyframes growBar {
-  from { height: 0; }
-  to { height: 100%; }
+  from {
+    height: 0;
+  }
+
+  to {
+    height: 100%;
+  }
 }
 
 @keyframes panelSwapIn {
-  from { opacity: 0; transform: translate3d(24px, 0, 0); }
-  to { opacity: 1; transform: translate3d(0, 0, 0); }
+  from {
+    opacity: 0;
+    transform: translate3d(24px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 .neu {
@@ -461,7 +499,154 @@ button {
   transform: translate3d(4px, 0, 0);
 }
 
-/* ─── Marquee  */
+/* ─── Writing / Newsletter ─── */
+.writing-card {
+  transform-style: preserve-3d;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+.writing-spotlight {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.09), transparent 70%);
+}
+
+.writing-card:hover .writing-spotlight {
+  opacity: 1;
+}
+
+.writing-glow-ring {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: conic-gradient(from 0deg, transparent 0%, var(--w-color, #22d3ee) 15%, transparent 35%);
+  animation: spin-border 4s linear infinite;
+}
+
+.writing-card:hover .writing-glow-ring {
+  opacity: 0.9;
+}
+
+.writing-icon-float {
+  animation: float-badge 3.5s ease-in-out infinite;
+}
+
+.writing-cta-bg {
+  background: linear-gradient(120deg, rgba(99, 102, 241, 0.14), rgba(34, 211, 238, 0.1), rgba(16, 217, 160, 0.12));
+  background-size: 200% 200%;
+  animation: ctaGradientMove 8s ease infinite;
+}
+
+@keyframes ctaGradientMove {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes writingBadgePulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.45);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(34, 211, 238, 0);
+  }
+}
+
+.writing-pulse {
+  animation: writingBadgePulse 2s ease-out infinite;
+}
+
+.writing-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(50px);
+}
+
+.writing-shimmer-text {
+  background: linear-gradient(90deg, var(--text1) 30%, var(--accent-h) 50%, var(--text1) 70%);
+  background-size: 220% auto;
+  background-position: 0% center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transition: background-position 0.9s ease;
+}
+
+.writing-card:hover .writing-shimmer-text {
+  background-position: 100% center;
+}
+
+.writing-magnetic {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+.writing-arrow {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.writing-card:hover .writing-arrow {
+  transform: translate(3px, -3px);
+}
+
+.writing-tag-track {
+  display: flex;
+  width: max-content;
+  gap: 0.6rem;
+  animation: marquee-scroll 22s linear infinite;
+  will-change: transform;
+}
+
+.writing-tag-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes writingOrbFloat {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(20px, -25px, 0) scale(1.08);
+  }
+}
+
+.writing-orb-1 {
+  animation: writingOrbFloat 9s ease-in-out infinite;
+}
+
+.writing-orb-2 {
+  animation: writingOrbFloat 11s ease-in-out infinite reverse;
+}
+
+@media (max-width: 640px) {
+  .writing-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+}
+
+
 .marquee-track {
   display: flex;
   width: max-content;

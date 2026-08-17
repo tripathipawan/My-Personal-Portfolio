@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useRef, useCallback } from "react";
-import { personal, socials, Resume } from "../../data/index";
+import { personal, socials, Resume, newsletter } from "../../data/index";
 import { FaGithub, FaLinkedin, FaYoutube, FaInstagram, FaWhatsapp, FaFacebook } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import { Download } from "lucide-react";
@@ -192,6 +192,34 @@ export default function About() {
                 {personal.Aboutbio}
               </p>
             </div>
+
+            <a
+              href={newsletter.followUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover-lift relative overflow-hidden flex items-center gap-3 rounded-xl px-4 py-3 no-underline"
+              style={{
+                background: "linear-gradient(145deg,var(--bg2),var(--bg3))",
+                boxShadow: "var(--neu-out-sm)",
+                border: "1px solid rgba(34,211,238,0.25)",
+              }}
+            >
+              <div
+                aria-hidden="true"
+                className="relative z-10 w-9 h-9 rounded-lg text-base flex items-center justify-center flex-shrink-0"
+                style={{ background: "rgba(34,211,238,0.12)", border: "1px solid rgba(34,211,238,0.3)" }}
+              >
+                ✍️
+              </div>
+              <div className="relative z-10 min-w-0">
+                <p className="text-[0.85rem] font-semibold" style={{ color: "var(--text1)" }}>
+                  I also write on my {newsletter.platform} — {newsletter.subscribers} subscribers
+                </p>
+                <p className="text-[0.75rem]" style={{ color: "var(--text3)" }}>
+                  Frontend tutorials & dev breakdowns. Tap to follow →
+                </p>
+              </div>
+            </a>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {details.map((item, i) => {
