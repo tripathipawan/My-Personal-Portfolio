@@ -1,5 +1,7 @@
+/* eslint-disable react-hooks/immutability */
+/* eslint-disable react-hooks/refs */
 /* eslint-disable react-hooks/set-state-in-effect */
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import emailjs from "@emailjs/browser";
 import { personal } from "../../data/index";
 import { store } from "../../utils/store";
@@ -71,6 +73,31 @@ function PulseDot() {
   );
 }
 
+function useTilt(maxTilt = 3) {
+  const cardRef = useRef(null);
+
+  const handleMove = useCallback(
+    (e) => {
+      const card = cardRef.current;
+      if (!card) return;
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -maxTilt;
+      const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * maxTilt;
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+    },
+    [maxTilt]
+  );
+
+  const handleLeave = useCallback(() => {
+    const card = cardRef.current;
+    if (card) card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
+  }, []);
+
+  return { cardRef, handleMove, handleLeave };
+}
+
 const FL = ({ label }) => (
   <label className="block text-[10px] font-black uppercase tracking-[0.18em] mb-1.5" style={{ color: "var(--text3)" }}>
     {label}
@@ -131,9 +158,57 @@ function StyledField({ as = "input", err, ...props }) {
   );
 }
 
+function InfoRow({ item, delay }) {
+  const [hovered, setHovered] = useState(false);
+  const { cardRef, handleMove, handleLeave } = useTilt(2);
+
+  return (
+    <Reveal dir="l" delay={delay}>
+      <div
+        ref={cardRef}
+        onMouseEnter={() => setHovered(true)}
+        onMouseMove={handleMove}
+        onMouseLeave={() => {
+          setHovered(false);
+          handleLeave();
+        }}
+        className="info-row relative flex items-center gap-4 px-5 py-3 rounded-2xl overflow-hidden cursor-default neu-sm"
+        style={{ border: "1px solid var(--border)", transition: "transform 0.2s ease, border-color 0.3s ease", willChange: "transform" }}
+      >
+        <div
+          className="w-10 h-10 flex-shrink-0 rounded-xl flex items-center justify-center text-base font-bold text-white transition-transform duration-200"
+          style={{
+            background: "linear-gradient(135deg, var(--accent), var(--accent-h))",
+            boxShadow: hovered ? "0 6px 20px var(--accent-glow)" : "0 4px 14px var(--accent-glow)",
+            fontFamily: "monospace",
+            transform: hovered ? "scale(1.1) rotate(-6deg)" : "scale(1) rotate(0deg)",
+          }}
+        >
+          {item.icon}
+        </div>
+
+        <div className="min-w-0 flex-1">
+          <div className="text-[9px] uppercase tracking-[0.18em] font-black mb-0.5" style={{ color: "var(--text3)" }}>
+            {item.label}
+          </div>
+          <div className="text-sm font-semibold truncate" style={{ color: item.green ? "var(--green)" : "var(--text1)" }}>
+            {item.val}
+          </div>
+        </div>
+
+        <span className="info-row-arrow text-xs font-bold" style={{ color: "var(--accent-h)" }}>
+          →
+        </span>
+      </div>
+    </Reveal>
+  );
+}
+
 export default function Contact() {
   const formRef = useRef(null);
   const timerRef = useRef(null);
+  const heroTilt = useTilt(2.5);
+  const formTilt = useTilt(1.8);
 
   const [f, setF] = useState({ name: "", email: "", subject: "", message: "" });
   const [err, setErr] = useState({});
@@ -219,6 +294,13 @@ export default function Contact() {
         }}
       />
       <NoiseBg />
+      <div
+        className="absolute top-3 left-1/2 -translate-x-1/2 pointer-events-none select-none whitespace-nowrap font-black uppercase hidden sm:block"
+        aria-hidden
+        style={{ fontSize: "6rem", letterSpacing: "-2px", color: "var(--text1)", opacity: 0.04, fontFamily: "var(--font)" }}
+      >
+        CONTACT
+      </div>
 
       <div aria-hidden className="absolute pointer-events-none" style={{ right: "7%", top: "20%" }}>
         {[340, 210, 110].map((sz, i) => (
@@ -267,8 +349,19 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-8 items-start">
           {/* ════ LEFT ════ */}
           <Reveal dir="l" className="flex flex-col gap-4">
-            <div className="relative rounded-3xl overflow-hidden p-7 neu" style={{ border: "1px solid var(--border-h)" }}>
+            <div
+              ref={heroTilt.cardRef}
+              onMouseMove={heroTilt.handleMove}
+              onMouseLeave={heroTilt.handleLeave}
+              className="relative rounded-3xl overflow-hidden p-7 neu"
+              style={{ border: "1px solid var(--border-h)", transition: "transform 0.2s ease", willChange: "transform" }}
+            >
               <DiagLines />
+              <div
+                aria-hidden
+                className="absolute -right-10 -bottom-10 w-48 h-48 rounded-full pointer-events-none"
+                style={{ background: "var(--accent)", filter: "blur(60px)", opacity: 0.12 }}
+              />
               <div
                 aria-hidden
                 className="absolute -right-2 -top-4 font-black leading-none select-none pointer-events-none"
@@ -305,43 +398,22 @@ export default function Contact() {
             </div>
 
             {INFO.map((item, i) => (
-              <Reveal
-                key={item.label}
-                dir="l"
-                delay={250 + i * 100}
-                className="info-row relative flex items-center gap-4 px-5 py-3 rounded-2xl overflow-hidden cursor-default neu-sm"
-                style={{ border: "1px solid var(--border)" }}
-              >
-                <div
-                  className="w-10 h-10 flex-shrink-0 rounded-xl flex items-center justify-center text-base font-bold text-white"
-                  style={{
-                    background: "linear-gradient(135deg, var(--accent), var(--accent-h))",
-                    boxShadow: "0 4px 14px var(--accent-glow)",
-                    fontFamily: "monospace",
-                  }}
-                >
-                  {item.icon}
-                </div>
-
-                <div className="min-w-0 flex-1">
-                  <div className="text-[9px] uppercase tracking-[0.18em] font-black mb-0.5" style={{ color: "var(--text3)" }}>
-                    {item.label}
-                  </div>
-                  <div className="text-sm font-semibold truncate" style={{ color: item.green ? "var(--green)" : "var(--text1)" }}>
-                    {item.val}
-                  </div>
-                </div>
-
-                <span className="info-row-arrow text-xs font-bold" style={{ color: "var(--accent-h)" }}>
-                  →
-                </span>
-              </Reveal>
+              <InfoRow key={item.label} item={item} delay={250 + i * 100} />
             ))}
           </Reveal>
 
           {/* ════ RIGHT: form card ════ */}
           <Reveal dir="r" as="div" delay={100}>
-            <div ref={formRef} className="relative rounded-3xl overflow-hidden neu" style={{ border: "1px solid var(--border-h)" }}>
+            <div
+              ref={(node) => {
+                formRef.current = node;
+                formTilt.cardRef.current = node;
+              }}
+              onMouseMove={formTilt.handleMove}
+              onMouseLeave={formTilt.handleLeave}
+              className="relative rounded-3xl overflow-hidden neu"
+              style={{ border: "1px solid var(--border-h)", transition: "transform 0.2s ease", transformStyle: "preserve-3d", willChange: "transform" }}
+            >
               <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
                 <CursorGlow parentRef={formRef} />
               </div>
@@ -489,3 +561,4 @@ export default function Contact() {
     </section>
   );
 }
+

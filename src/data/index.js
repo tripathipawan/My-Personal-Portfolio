@@ -4,14 +4,14 @@ export const personal = {
   role: "Frontend Developer",
   location: "Uttarakhand, India",
   email: "tripathipawan8705@gmail.com",
-  phone: "+91 6396096431",
+  phone: "+91 9557673455",
   bio: "Passionate Frontend Developer crafting pixel-perfect, high-performance web applications. I blend clean code with creative design — turning complex ideas into seamless digital experiences.",
   Aboutbio: "I'm Pawan Tripathi, a passionate Frontend Developer from Uttarakhand, India, currently pursuing my BCA at MAHGU. I specialize in building responsive, pixel-perfect web applications using React.js, TypeScript, and Tailwind CSS. With 75+ projects and a strong eye for UI/UX, I blend clean code with creative design to craft seamless digital experiences. Beyond coding, I run Tripathi Dev Lab — a YouTube channel where I share web dev tutorials and insights with the developer community. I'm always exploring the latest in frontend tech, AI dev tools, and open-source — and I'm currently open to freelance projects and exciting opportunities.",
   status: "Open to Opportunities",
 }
 
 export const Resume = {
-  link: "https://drive.google.com/file/d/1qE2RDXEcMoF0FRtU3SP2qMEm9sskMjlk/view?usp=drivesdk",
+  link: "https://drive.google.com/file/d/1t-Me_3FFaOjPpR_aiIB7PByPl1C3Sl8Q/view?usp=drivesdk",
 }
 
 export const phrases = [
@@ -68,11 +68,11 @@ export const skillCategories = [
 ]
 
 export const projects = [
-{
+  {
     id: 1, emoji: "🤖", title: "Access Copilot", featured: true,
     image: "/projects/accesscopilot.webp",
     desc: "AccessCopilot is an AI-powered web accessibility auditing tool.",
-    tech: ["TypeScript","Redux Toolkit + Redux Persist",  "React.js", "Tailwind CSS", "Framer Motion", "Redux Toolkit"],
+    tech: ["TypeScript", "Redux Toolkit + Redux Persist", "React.js", "Tailwind CSS", "Framer Motion", "Redux Toolkit"],
     github: "https://github.com/tripathipawan/Accessibility_Copilot",
     live: "https://accesscopilot.vercel.app/",
     color: "#7510ff",
@@ -95,8 +95,6 @@ export const projects = [
     live: "https://appoint-your-doctor.vercel.app/",
     color: "#7510ff",
   },
-
-
   {
     id: 4, emoji: "🌈", title: "Color Palette website", featured: false,
     image: "/projects/colorpalette.webp",
@@ -104,7 +102,16 @@ export const projects = [
     tech: ["Supabase", "React.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Lucide Icons"],
     github: "https://github.com/tripathipawan/Color_Picker_Website",
     live: "https://paletteflow-studio.vercel.app/",
-    color: "#f43f5e",
+    color: "#f43f1e",
+  },
+  {
+    id: 5, emoji: "🌈", title: "SagaCSS", featured: false,
+    image: "/projects/sagacss.webp",
+    desc: "SagaCSS is a free, all-in-one visual CSS toolkit for frontend developers. Instead of memorizing syntax for gradients, box-shadows, clip-paths, cubic-bezier curves, or CSS Grid, you design everything visually with live sliders and previews — and the tool generates clean, copy-ready code for you in CSS, Tailwind, and Bootstrap formats.",
+    tech: ["TanStack Query", "React.js", "TypeScript", "Tailwind CSS", "Framer Motion", "	shadcn/ui"],
+    github: "https://github.com/tripathipawan/Saga_CSS_Website",
+    live: "https://sagacss.vercel.app/",
+    color: "#E1306C",
   },
   {
     id: 6, emoji: "👟", title: "Nike Landing Page", featured: false,
@@ -115,7 +122,6 @@ export const projects = [
     live: "https://nike-eta-beryl.vercel.app/",
     color: "#f59e0b",
   }
-
 ]
 
 export const experience = [
@@ -128,7 +134,7 @@ export const experience = [
     current: true,
     desc: 'Building and maintaining personal projects, including web apps, UI components, and open-source contributions.',
     tags: ["JavaScript", "TypeScript", "React.js", "Firebase", "REST APIs", "Tailwind CSS", "Framer Motion", "GSAP", "Bootstrap", "Material UI", "ShadCN UI"],
-  },{
+  }, {
     id: 2,
     role: "Frontend Developer",
     company: "Tripathi Dev Lab",
@@ -201,7 +207,7 @@ export const certifications = [
     icon: "🏅",
     URL: "https://simpli-web.app.link/e/5z6MY9nI33b",
   },
-    {
+  {
     id: 2,
     name: "Github Copilot Fundamentals",
     platform: "Microsoft",
@@ -262,6 +268,56 @@ export const services = [
     desc: "Full frontend + backend integration — Firebase Auth, Firestore real-time DB, and REST API wiring for production-ready apps.",
     color: "#38bdf8",
     tags: ["Firebase", "Firestore", "REST APIs", "Axios"],
+    available: true,
+  },
+  {
+    id: 6,
+    icon: "🧩",
+    title: "State Management",
+    shortDesc: "Redux Toolkit & Context",
+    desc: "Architecting predictable, scalable app state using Redux Toolkit, Redux Persist & Context API — built for complex, data-heavy React apps.",
+    color: "#a78bfa",
+    tags: ["Redux Toolkit", "Redux Persist", "Context API", "Custom Hooks"],
+    available: true,
+  },
+  {
+    id: 7,
+    icon: "♿",
+    title: "Accessibility Audits",
+    shortDesc: "WCAG-compliant apps",
+    desc: "Auditing and fixing accessibility gaps — keyboard navigation, ARIA labels, color contrast & screen-reader support — so every user can use your product.",
+    color: "#34d399",
+    tags: ["WCAG", "ARIA", "Screen Readers", "a11y"],
+    available: true,
+  },
+  {
+    id: 8,
+    icon: "✨",
+    title: "Animation & Interactions",
+    shortDesc: "GSAP + Framer Motion",
+    desc: "Crafting scroll-triggered reveals, smooth page transitions & delightful micro-interactions that make interfaces feel alive, not just functional.",
+    color: "#fb923c",
+    tags: ["GSAP", "Framer Motion", "Scroll Animations", "Micro-interactions"],
+    available: true,
+  },
+  {
+    id: 9,
+    icon: "✍️",
+    title: "Technical Writing",
+    shortDesc: "Tutorials & dev articles",
+    desc: "Writing in-depth frontend tutorials and dev breakdowns — the same content I publish on my LinkedIn newsletter to 5,000+ subscribers and on Tripathi Dev Lab.",
+    color: "#22d3ee",
+    tags: ["LinkedIn Newsletter", "Tech Articles", "Tutorials", "Content Strategy"],
+    available: true,
+  },
+  {
+    id: 10,
+    icon: "🛒",
+    title: "E-commerce & Booking Apps",
+    shortDesc: "Cart, checkout & scheduling",
+    desc: "Building end-to-end e-commerce and appointment-booking flows — product catalogs, cart & checkout, auth, and real-time scheduling with Firestore.",
+    color: "#eab308",
+    tags: ["Clerk", "Firestore", "Cart & Checkout", "Booking Flows"],
     available: true,
   },
 ]

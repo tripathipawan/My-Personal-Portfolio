@@ -1,141 +1,74 @@
-import { useRef, useState } from "react";
 import { services } from "../../data/index";
 import SectionHeader from "../ui/SectionHeader";
 import Reveal from "../ui/Reveal";
 
-function HeroCard({ service }) {
-  const [hovered, setHovered] = useState(false);
-
+function ServiceMarqueeCard({ service, index }) {
   return (
     <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="relative rounded-2xl overflow-hidden col-span-1 md:col-span-2"
+      className="relative flex-shrink-0 rounded-2xl overflow-hidden flex flex-col justify-between p-6"
       style={{
+        width: "clamp(240px, 24vw, 320px)",
+        aspectRatio: "5 / 6",
         background: "linear-gradient(145deg, var(--bg2), var(--bg3))",
-        border: `1px solid ${hovered ? service.color + "55" : "var(--border)"}`,
+        border: "1px solid var(--border)",
         boxShadow: "var(--neu-out)",
-        transition: "border-color 0.3s ease",
       }}
     >
-      <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: `linear-gradient(90deg, ${service.color}, ${service.color}44)` }} />
+      {/* top accent line */}
       <div
-        className="absolute top-0 right-0 w-64 h-64 rounded-full pointer-events-none"
-        style={{ background: service.color, filter: "blur(60px)", opacity: hovered ? 0.12 : 0.06, transition: "opacity 0.4s" }}
+        className="absolute top-0 left-0 right-0 h-[3px]"
+        style={{ background: `linear-gradient(90deg, ${service.color}, ${service.color}22)` }}
         aria-hidden
       />
-
-      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 p-6 sm:p-8 relative z-10">
-        <div
-          className="hidden sm:flex text-[80px] font-black leading-none select-none flex-shrink-0"
-          style={{ fontFamily: "var(--mono)", color: service.color, opacity: 0.08 }}
-          aria-hidden
-        >
-          01
-        </div>
-
-        <div
-          className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl flex-shrink-0 transition-transform duration-300"
-          style={{
-            background: `${service.color}18`,
-            border: `1px solid ${service.color}35`,
-            boxShadow: hovered ? `0 0 24px ${service.color}30` : "none",
-            transform: hovered ? "scale(1.1)" : "scale(1)",
-          }}
-        >
-          {service.icon}
-        </div>
-
-        <div className="flex-1 min-w-0">
-          <div className="text-[10px] font-bold tracking-[0.12em] uppercase mb-2" style={{ color: service.color }}>
-            Primary Service
-          </div>
-          <h3 className="text-xl sm:text-2xl font-black mb-2 leading-tight" style={{ color: "var(--text1)", fontFamily: "var(--font)" }}>
-            {service.title}
-          </h3>
-          <p className="text-sm leading-relaxed mb-4" style={{ color: "var(--text2)" }}>
-            {service.desc}
-          </p>
-
-          <div className="flex flex-wrap gap-2">
-            {service.tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-[10px] font-semibold px-2.5 py-1 rounded-full"
-                style={{ background: `${service.color}12`, border: `1px solid ${service.color}30`, color: service.color }}
-              >
-                {tag}
-              </span>
-            ))}
-            {service.available && (
-              <span
-                className="text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 ml-auto"
-                style={{ background: "rgba(16, 217, 160, 0.1)", border: "1px solid rgba(16, 217, 160, 0.3)", color: "var(--green)" }}
-              >
-                <span className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--green)", animation: "blink 2s ease infinite" }} />
-                Available
-              </span>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function MiniCard({ service, index }) {
-  const [hovered, setHovered] = useState(false);
-
-  return (
-    <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="relative rounded-2xl p-5 overflow-hidden flex flex-col gap-3"
-      style={{
-        background: "linear-gradient(145deg, var(--bg2), var(--bg3))",
-        border: `1px solid ${hovered ? service.color + "55" : "var(--border)"}`,
-        boxShadow: "var(--neu-out-sm)",
-        transition: "border-color 0.25s ease, transform 0.25s ease",
-        transform: hovered ? "translateY(-6px)" : "translateY(0)",
-      }}
-    >
-      <div className="absolute top-0 left-0 right-0 h-[2px] rounded-t-2xl" style={{ background: service.color, opacity: 0.7 }} />
+      {/* glow blob */}
       <div
-        className="absolute top-0 right-0 w-28 h-28 rounded-full pointer-events-none"
-        style={{ background: service.color, filter: "blur(32px)", opacity: hovered ? 0.1 : 0.04, transition: "opacity 0.35s" }}
+        className="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none"
+        style={{ background: service.color, filter: "blur(45px)", opacity: 0.08 }}
         aria-hidden
       />
+      {/* watermark number */}
       <div
-        className="absolute bottom-3 right-4 font-black select-none pointer-events-none"
-        style={{ fontFamily: "var(--mono)", fontSize: "2.2rem", lineHeight: 1, color: service.color, opacity: 0.06 }}
+        className="absolute bottom-4 right-5 font-black select-none pointer-events-none"
+        style={{ fontFamily: "var(--mono)", fontSize: "2.6rem", lineHeight: 1, color: service.color, opacity: 0.07 }}
         aria-hidden
       >
-        {String(index + 2).padStart(2, "0")}
+        {String(index + 1).padStart(2, "0")}
       </div>
 
-      <div
-        className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0 relative z-10 transition-transform duration-300"
-        style={{ background: `${service.color}15`, border: `1px solid ${service.color}30`, transform: hovered ? "scale(1.1)" : "scale(1)" }}
-      >
-        {service.icon}
-      </div>
+      <div className="relative z-10">
+        <div className="flex items-center justify-between mb-4">
+          <div
+            className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl"
+            style={{ background: `${service.color}18`, border: `1px solid ${service.color}35` }}
+          >
+            {service.icon}
+          </div>
 
-      <div className="relative z-10 flex-1">
-        <div className="w-8 h-[2px] rounded-full mb-2" style={{ background: service.color }} />
-        <h3 className="text-sm font-bold mb-1" style={{ color: "var(--text1)", fontFamily: "var(--font)" }}>
+          {service.available && (
+            <span
+              className="text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5"
+              style={{ background: "rgba(16, 217, 160, 0.1)", border: "1px solid rgba(16, 217, 160, 0.3)", color: "var(--green)" }}
+            >
+              <span className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--green)", animation: "blink 2s ease infinite" }} />
+              Available
+            </span>
+          )}
+        </div>
+
+        <h3 className="text-base font-black mb-2 leading-tight" style={{ color: "var(--text1)", fontFamily: "var(--font)" }}>
           {service.title}
         </h3>
-        <p className="text-[11px] leading-[1.6]" style={{ color: "var(--text2)" }}>
+        <p className="text-[12px] leading-relaxed" style={{ color: "var(--text2)" }}>
           {service.desc}
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-1.5 relative z-10">
-        {service.tags.slice(0, 2).map((tag) => (
+      <div className="flex flex-wrap gap-1.5 relative z-10 mt-4">
+        {service.tags.slice(0, 3).map((tag) => (
           <span
             key={tag}
-            className="text-[9px] font-semibold px-2 py-0.5 rounded-full"
-            style={{ background: `${service.color}10`, border: `1px solid ${service.color}25`, color: service.color }}
+            className="text-[10px] font-semibold px-2.5 py-1 rounded-full"
+            style={{ background: `${service.color}12`, border: `1px solid ${service.color}30`, color: service.color }}
           >
             {tag}
           </span>
@@ -145,36 +78,8 @@ function MiniCard({ service, index }) {
   );
 }
 
-function StatsRow() {
-  const stats = [
-    { label: "Services", value: `${services.length}` },
-    { label: "Projects Delivered", value: "75+" },
-    { label: "Open to Work", value: "Yes ✓" },
-  ];
-
-  return (
-    <Reveal className="mt-6 grid grid-cols-3 gap-3" delay={300}>
-      {stats.map((s) => (
-        <div
-          key={s.label}
-          className="flex flex-col items-center py-4 px-2 rounded-2xl"
-          style={{ background: "linear-gradient(145deg, var(--bg2), var(--bg3))", border: "1px solid var(--border)", boxShadow: "var(--neu-out-sm)" }}
-        >
-          <span className="text-xl sm:text-2xl font-black g-text" style={{ fontFamily: "var(--font)" }}>
-            {s.value}
-          </span>
-          <span className="text-[10px] sm:text-xs font-medium mt-1 text-center" style={{ color: "var(--text2)" }}>
-            {s.label}
-          </span>
-        </div>
-      ))}
-    </Reveal>
-  );
-}
-
 export default function Services() {
-  const gridRef = useRef(null);
-  const [heroService, ...miniServices] = services;
+  const loopServices = [...services, ...services];
 
   return (
     <section id="services" className="relative overflow-hidden" style={{ background: "var(--bg0)" }}>
@@ -184,25 +89,36 @@ export default function Services() {
         style={{ backgroundImage: "radial-gradient(ellipse 70% 40% at 50% 0%, rgba(99,102,241,0.07) 0%, transparent 70%)" }}
       />
 
+      <div
+        className="absolute top-3 left-1/2 -translate-x-1/2 pointer-events-none select-none whitespace-nowrap font-black uppercase hidden sm:block"
+        aria-hidden
+        style={{ fontSize: "6rem", letterSpacing: "-2px", color: "var(--text1)", opacity: 0.05, fontFamily: "var(--font)" }}
+      >
+        SERVICES
+      </div>
+
       <div className="section-wrap relative z-10">
         <SectionHeader
           eyebrow="What I Offer"
           title={<>My <span className="g-text">Services</span></>}
-          subtitle="From pixel-perfect UIs to AI-powered web apps — I build digital experiences that stand out and perform."
+          subtitle="From pixel-perfect UIs to AI-powered web apps — I build digital experiences that stand out and perform. Hover to pause and take a closer look."
         />
 
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Reveal className="col-span-1 md:col-span-2">
-            <HeroCard service={heroService} />
-          </Reveal>
-          {miniServices.map((service, i) => (
-            <Reveal key={service.id} delay={i * 80}>
-              <MiniCard service={service} index={i} />
-            </Reveal>
-          ))}
-        </div>
-
-        <StatsRow />
+        <Reveal>
+          <div
+            className="w-full max-w-[1200px] mx-auto overflow-hidden py-5"
+            style={{
+              WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
+              maskImage: "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
+            }}
+          >
+            <div className="marquee-track flex gap-5 sm:gap-7">
+              {loopServices.map((service, i) => (
+                <ServiceMarqueeCard key={`${service.id}-${i}`} service={service} index={i % services.length} />
+              ))}
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
