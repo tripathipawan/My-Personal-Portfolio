@@ -62,10 +62,7 @@ const NAV = [
   "skills",
   "journey",
   "projects",
-<<<<<<< HEAD
   "writing",
-=======
->>>>>>> bce2ebb5d48a01142cc6e4f5352f7ad7c438b7dc
   "services",
   "contact",
 ];
