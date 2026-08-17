@@ -75,7 +75,6 @@ function Inner() {
       <main id="main-content">
         <Hero />
         <MarqueeBar />
-
         <Suspense fallback={<Skeleton />}>
           <About />
         </Suspense>
@@ -83,13 +82,13 @@ function Inner() {
           <Skills />
         </Suspense>
         <Suspense fallback={<Skeleton />}>
-          <Services />   
-        </Suspense>
-        <Suspense fallback={<Skeleton />}>
           <Edu_Exp />
         </Suspense>
         <Suspense fallback={<Skeleton />}>
           <Projects />
+        </Suspense>
+        <Suspense fallback={<Skeleton />}>
+          <Services />   
         </Suspense>
         <Suspense fallback={<Skeleton />}>
           <Contact />
