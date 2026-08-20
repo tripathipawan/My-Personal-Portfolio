@@ -5,10 +5,10 @@ import Reveal from "../ui/Reveal";
 function ServiceMarqueeCard({ service, index }) {
   return (
     <div
-      className="relative flex-shrink-0 rounded-2xl overflow-hidden flex flex-col justify-between p-6"
+      className="relative flex-shrink-0 rounded-2xl overflow-hidden flex flex-col justify-between p-4 sm:p-5 md:p-6"
       style={{
-        width: "clamp(240px, 24vw, 320px)",
-        aspectRatio: "5 / 6",
+        width: "clamp(200px, 60vw, 320px)",
+        aspectRatio: "4 / 5",
         background: "linear-gradient(145deg, var(--bg2), var(--bg3))",
         border: "1px solid var(--border)",
         boxShadow: "var(--neu-out)",
@@ -22,23 +22,23 @@ function ServiceMarqueeCard({ service, index }) {
       />
       {/* glow blob */}
       <div
-        className="absolute top-0 right-0 w-32 h-32 rounded-full pointer-events-none"
+        className="absolute top-0 right-0 w-24 h-24 sm:w-32 sm:h-32 rounded-full pointer-events-none"
         style={{ background: service.color, filter: "blur(45px)", opacity: 0.08 }}
         aria-hidden
       />
       {/* watermark number */}
       <div
         className="absolute bottom-4 right-5 font-black select-none pointer-events-none"
-        style={{ fontFamily: "var(--mono)", fontSize: "2.6rem", lineHeight: 1, color: service.color, opacity: 0.07 }}
+        style={{ fontFamily: "var(--mono)", fontSize: "2rem", lineHeight: 1, color: service.color, opacity: 0.07 }}
         aria-hidden
       >
         {String(index + 1).padStart(2, "0")}
       </div>
 
       <div className="relative z-10">
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between gap-2 mb-3 sm:mb-4">
           <div
-            className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-xl sm:text-2xl flex-shrink-0"
             style={{ background: `${service.color}18`, border: `1px solid ${service.color}35` }}
           >
             {service.icon}
@@ -46,28 +46,28 @@ function ServiceMarqueeCard({ service, index }) {
 
           {service.available && (
             <span
-              className="text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5"
+              className="text-[9px] sm:text-[10px] font-bold px-2 sm:px-2.5 py-1 rounded-full flex items-center gap-1.5 whitespace-nowrap flex-shrink-0"
               style={{ background: "rgba(16, 217, 160, 0.1)", border: "1px solid rgba(16, 217, 160, 0.3)", color: "var(--green)" }}
             >
-              <span className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--green)", animation: "blink 2s ease infinite" }} />
+              <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "var(--green)", animation: "blink 2s ease infinite" }} />
               Available
             </span>
           )}
         </div>
 
-        <h3 className="text-base font-black mb-2 leading-tight" style={{ color: "var(--text1)", fontFamily: "var(--font)" }}>
+        <h3 className="text-sm sm:text-base font-black mb-2 leading-tight" style={{ color: "var(--text1)", fontFamily: "var(--font)" }}>
           {service.title}
         </h3>
-        <p className="text-[12px] leading-relaxed" style={{ color: "var(--text2)" }}>
+        <p className="text-[11px] sm:text-[12px] leading-relaxed" style={{ color: "var(--text2)" }}>
           {service.desc}
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-1.5 relative z-10 mt-4">
+      <div className="flex flex-wrap gap-1.5 relative z-10 mt-3 sm:mt-4">
         {service.tags.slice(0, 3).map((tag) => (
           <span
             key={tag}
-            className="text-[10px] font-semibold px-2.5 py-1 rounded-full"
+            className="text-[9px] sm:text-[10px] font-semibold px-2 sm:px-2.5 py-1 rounded-full"
             style={{ background: `${service.color}12`, border: `1px solid ${service.color}30`, color: service.color }}
           >
             {tag}
@@ -112,7 +112,7 @@ export default function Services() {
               maskImage: "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
             }}
           >
-            <div className="marquee-track flex gap-5 sm:gap-7">
+            <div className="marquee-track flex gap-4 sm:gap-5 md:gap-7">
               {loopServices.map((service, i) => (
                 <ServiceMarqueeCard key={`${service.id}-${i}`} service={service} index={i % services.length} />
               ))}
