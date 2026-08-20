@@ -355,12 +355,5 @@ export const newsletter = {
       url: "https://www.linkedin.com/pulse/prompt-engineering-vs-context-which-skill-actually-matters-tripathi-othkc/",
       tag: "AI Skills",
     },
-    {
-      title: "The AI Stack Every Developer Should Master For The Future",
-      desc: "A practical map of the tools and layers — from LLMs to vector databases — that make up a modern AI application stack.",
-      url: "https://www.linkedin.com/pulse/ai-stack-every-developer-should-master-future-pawan-tripathi-ppfhc/",
-      tag: "AI Stack",
-    },
-
   ],
 }
